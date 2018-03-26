@@ -7,9 +7,8 @@ namespace Test_proj_C
 {
     class LinkedList<R> :System.Collections.Generic.IEnumerable<R>
     {
-      public  LinkedListNode<R> head;
-        public LinkedListNode<R> tail;
-
+      public LinkedListNode<R> head;
+      public LinkedListNode<R> tail;
 
         public int Count
         {
@@ -36,9 +35,15 @@ namespace Test_proj_C
       
         public void ShowList(LinkedList<R> list)
         {
+            int check_quantity = 1;
             foreach (R i in list)
             {
                 Console.WriteLine(i+"  ");
+                if (check_quantity >= Count)
+                {
+                    break;
+                }
+                check_quantity++; 
             }
         }
 
