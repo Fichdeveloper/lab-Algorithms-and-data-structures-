@@ -1,21 +1,24 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-namespace Homework_C
+
+namespace Test_proj_C
 {
-
-    class LinkedList<T> : System.Collections.Generic.IEnumerable<T> 
+    class LinkedList<R> :System.Collections.Generic.IEnumerable<R>
     {
-       public LinkedListNode<T> head;
-       public LinkedListNode<T> tail;
+      public  LinkedListNode<R> head;
+        public LinkedListNode<R> tail;
 
-        public int Count { get; private set; }
 
-        public void Add(T value)
+        public int Count
         {
-            LinkedListNode<T> node = new LinkedListNode<T>(value);
+            get; private set;
+        }
+
+        public void Add(R value)
+        {
+            LinkedListNode<R> node = new LinkedListNode<R>(value);
 
             if (head==null)
             {
@@ -30,46 +33,18 @@ namespace Homework_C
             Count++;
         }
 
-        public bool Remove(T node)
+      
+        public void ShowList(LinkedList<R> list)
         {
-            LinkedListNode<T> previous = null;
-            LinkedListNode<T> current =head;
-
-            while (current!=null)
+            foreach (R i in list)
             {
-                if (current.Value.Equals(node))
-                {
-                    if (previous != null)
-                    {
-                        previous.Next = current.Next;
-
-
-                        if (current.Next == null)
-                        {
-                            tail = previous;
-                        }
-                    }
-                    else
-                    {
-                        head = head.Next;
-
-                        if (head == null)
-                        {
-                            tail = null;
-                        }
-                    }
-                    Count--;
-                    return true;
-                }
-                previous = current;
-                current = current.Next;
+                Console.WriteLine(i+"  ");
             }
-            return false;
         }
 
-        public System.Collections.Generic.IEnumerator<T> GetEnumerator()
+        public System.Collections.Generic.IEnumerator<R> GetEnumerator()
         {
-            LinkedListNode<T> current = head;
+            LinkedListNode<R> current = head;
 
             while (current!=null)
             {
@@ -80,7 +55,7 @@ namespace Homework_C
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            return ((IEnumerable<T>)this).GetEnumerator();
+            return ((IEnumerable<R>)this).GetEnumerator();
         }
     }
 }
