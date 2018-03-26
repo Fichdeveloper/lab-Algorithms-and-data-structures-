@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-namespace Homework_C
+namespace Test_proj_C
 {
     class Program
     {
